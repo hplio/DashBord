@@ -2,11 +2,10 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const Item = require('./models/item');
-// const path = require('path');
 const app = express();
-// const PORT = process.env.PORT || 3000;
+
 const PORT = process.env.PORT || 3000;
-// const PORT =  3000;
+
 
 app.use(bodyParser.json());
 app.use(express.static('./public'))
@@ -20,7 +19,7 @@ mongoose.connect('mongodb+srv://hplion02:TKQ2EgEoShS3eMfL@cluster0.cw8ezpr.mongo
 
 
 app.get('/',(req,res)=>{
-  // const filePath = path.join(__dirname, 'index.html');
+  
   res.status(201).sendFile('index.html');
 })
 app.post('/addItem', async (req, res) => {
@@ -35,9 +34,7 @@ app.post('/addItem', async (req, res) => {
   }
 });
 
-// app.get('/addItem',(req,res)=>{
-//   console.log('item is added.');
-// })
+
 app.delete('/deleteItem/:id', async (req, res) => {
   const { id } = req.params;
 
